@@ -1,0 +1,3 @@
+﻿<TextBlock VerticalAlignment="Center"
+           Margin="0"
+           Text="Hello world" />

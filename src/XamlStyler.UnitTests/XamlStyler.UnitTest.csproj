@@ -80,6 +80,12 @@
   <None Update="TestFiles\TestAttributeIndentationHandling_4.expected">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
   </None>
+  <None Update="TestFiles\TestAttributeOrderRuleGroupsOnMultipleGroups.expected">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
+  <None Update="TestFiles\TestAttributeOrderRuleGroupsOnMultipleGroups.testxaml">
+    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+  </None>
   <None Update="TestFiles\TestAttributeOrderRuleGroupsOnSeparateLinesHandling.expected">
     <CopyToOutputDirectory>Always</CopyToOutputDirectory>
   </None>

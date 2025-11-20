@@ -315,6 +315,44 @@ namespace Xavalon.XamlStyler.UnitTests
         }
 
         [Test]
+        public void TestAttributeOrderRuleGroupsOnMultipleGroups()
+        {
+            var stylerOptions = new StylerOptions(
+                config: FileHandlingIntegrationTests.GetConfiguration(@"TestConfigurations/LegacyTestSettings.json"))
+            {
+                AttributeOrderingRuleGroups = new[]
+                {
+                    // Class definition group
+                    "x:Class",
+                    // WPF Namespaces group
+                    "xmlns, xmlns:x",
+                    // Other namespace
+                    "xmlns:*",
+                    // Element key group
+                    "Key, x:Key, Uid, x:Uid",
+                    // Element name group
+                    "Name, x:Name, Title",
+                    // Content properties group
+                    "Content, Text",
+                    // Attached layout group
+                    "Grid.Column, Grid.ColumnSpan, Grid.Row, Grid.RowSpan, Canvas.Right, Canvas.Bottom, Canvas.Left, Canvas.Top",
+                    // Core layout group
+                    "MinWidth, MinHeight, Width, Height, MaxWidth, MaxHeight, Margin",
+                    // Alignment layout group
+                    "Panel.ZIndex, HorizontalAlignment, VerticalAlignment, HorizontalContentAlignment, VerticalContentAlignment",
+                    // Unmatched
+                    "*:*, *",
+                    // Miscellaneous/Other attributes group
+                    "Offset, Color, TargetName, Property, Value, StartPoint, EndPoint, PageSource, PageIndex",
+                    // Blend related group
+                    "mc:Ignorable, d:IsDataSource, d:LayoutOverrides, d:IsStaticText",
+                },
+            };
+
+            FileHandlingIntegrationTests.DoTest(stylerOptions);
+        }
+
+        [Test]
         public void TestProcessingInstructionHandling()
         {
             FileHandlingIntegrationTests.DoTest(this.GetLegacyStylerOptions());
